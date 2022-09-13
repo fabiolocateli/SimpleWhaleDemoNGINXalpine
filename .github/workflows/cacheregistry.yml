@@ -43,4 +43,4 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_HUB_DOCKERFABIO }}/simplewhale:latest
           cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_DOCKERFABIO }}/simplewhale:buildcache
-          cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/simplewhale:buildcache,mode=max
+          cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_DOCKERFABIO }}/simplewhale:buildcache,mode=max
