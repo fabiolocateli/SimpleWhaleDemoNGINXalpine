@@ -3,12 +3,23 @@
 name: CI
 
 # Controls when the workflow will run
+
 on:
-  # Triggers the workflow on push or pull request events but only for the "master" branch
   push:
-    branches: [ "master" ]
+    branches:
+        - 'master'
+    tags:
+        - 'v*'
   pull_request:
-    branches: [ "master" ]
+    branches:
+        - 'master'
+
+#on:
+  # Triggers the workflow on push or pull request events but only for the "master" branch
+ # push:
+  #  branches: [ "master" ]
+ # pull_request:
+  #  branches: [ "master" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -61,3 +72,4 @@ jobs:
           tags: ${{ secrets.DOCKER_HUB_DOCKERFABIO }}/simplewhale:latest
           cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_DOCKERFABIO }}/simplewhale:buildcache
           cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_DOCKERFABIO }}/simplewhale:buildcache,mode=max
+          
